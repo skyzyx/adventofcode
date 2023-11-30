@@ -83,9 +83,7 @@ function runTournament(file) {
   let myScore = 0;
 
   for (const game of tournament) {
-    let them = game[0];
-    let you = game[1];
-
+    const [them, you] = game;
     myScore += score(them, you);
   }
 
@@ -100,8 +98,7 @@ function runTournament2(file) {
   let myScore = 0;
 
   for (const game of tournament) {
-    let them = game[0];
-    let desiredResult = game[1];
+    const [them, desiredResult] = game;
 
     switch (desiredResult) {
       case 'X':
