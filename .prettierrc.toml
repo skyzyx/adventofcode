@@ -1,0 +1,15 @@
+arrowParens                = "avoid"
+bracketSameLine            = true
+bracketSpacing             = false
+embeddedLanguageFormatting = "auto"
+endOfLine                  = "lf"
+printWidth                 = 80
+proseWrap                  = "never"
+quoteProps                 = "as-needed"
+requirePragma              = false
+semi                       = true
+singleAttributePerLine     = false
+singleQuote                = true
+tabWidth                   = 2
+trailingComma              = "all"
+useTabs                    = false
