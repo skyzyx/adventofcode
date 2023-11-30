@@ -83,7 +83,10 @@ function runTournament(file) {
   let myScore = 0;
 
   for (const game of tournament) {
-    myScore += score(game[0], game[1]);
+    let them = game[0];
+    let you = game[1];
+
+    myScore += score(them, you);
   }
 
   return myScore;
