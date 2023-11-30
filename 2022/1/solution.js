@@ -1,3 +1,4 @@
+// https://adventofcode.com/2022/day/1
 function calories(input) {
   return input
     .map((e, i) => {
