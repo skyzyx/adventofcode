@@ -9,7 +9,7 @@ test('find elf with most calories (example data)', () => {
       [7000, 8000, 9000], // 24000
       [10000], // 10000
     ]),
-  ).toBe(4);
+  ).toBe(24000);
 });
 
 test('find elf with most calories (input data)', () => {
@@ -393,5 +393,5 @@ test('find elf with most calories (input data)', () => {
       [3481, 4655, 6998, 2009, 8754, 7585, 8723, 7766, 9118],
       [3997, 6810, 6988, 9613, 7982, 8594, 1229, 7588, 3507],
     ]),
-  ).toBe(236);
+  ).toBe(72240);
 });

@@ -7,7 +7,7 @@ function calories(input) {
         v: e.reduce((a, e) => a + e),
       };
     })
-    .sort((a, b) => b.v - a.v)[0].k;
+    .sort((a, b) => b.v - a.v)[0].v;
 }
 
 module.exports = calories;
