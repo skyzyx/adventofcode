@@ -67,8 +67,8 @@ function score(them, you) {
 // For example, suppose you were given the following strategy guide:
 
 function parseStrategyGuide(file) {
-  let contents = fs.readFileSync(file, {encoding: 'utf8'});
-  return contents
+  return fs
+    .readFileSync(file, {encoding: 'utf8'})
     .trim()
     .split('\n')
     .map(e => e.split(' '));
