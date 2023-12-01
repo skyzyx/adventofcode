@@ -54,23 +54,23 @@ func ParseInput2(f string) int {
 		var output bytes.Buffer
 
 		for len(s) > 0 {
-			if strings.HasPrefix(s, "one") {
+			if len(s) >= 3 && s[0:3] == "one" {
 				_, _ = output.WriteString("1")
-			} else if strings.HasPrefix(s, "two") {
+			} else if len(s) >= 3 && s[0:3] == "two" {
 				_, _ = output.WriteString("2")
-			} else if strings.HasPrefix(s, "three") {
+			} else if len(s) >= 5 && s[0:5] == "three" {
 				_, _ = output.WriteString("3")
-			} else if strings.HasPrefix(s, "four") {
+			} else if len(s) >= 4 && s[0:4] == "four" {
 				_, _ = output.WriteString("4")
-			} else if strings.HasPrefix(s, "five") {
+			} else if len(s) >= 4 && s[0:4] == "five" {
 				_, _ = output.WriteString("5")
-			} else if strings.HasPrefix(s, "six") {
+			} else if len(s) >= 3 && s[0:3] == "six" {
 				_, _ = output.WriteString("6")
-			} else if strings.HasPrefix(s, "seven") {
+			} else if len(s) >= 5 && s[0:5] == "seven" {
 				_, _ = output.WriteString("7")
-			} else if strings.HasPrefix(s, "eight") {
+			} else if len(s) >= 5 && s[0:5] == "eight" {
 				_, _ = output.WriteString("8")
-			} else if strings.HasPrefix(s, "nine") {
+			} else if len(s) >= 4 && s[0:4] == "nine" {
 				_, _ = output.WriteString("9")
 			} else {
 				_, _ = output.WriteString(s[0:1])
@@ -79,7 +79,7 @@ func ParseInput2(f string) int {
 			s = s[1:]
 		}
 
-		bytestream := []byte(output.String())
+		bytestream := output.Bytes()
 		var bDigits []byte
 
 		for i := range bytestream {
