@@ -3,7 +3,6 @@ package adventofcode
 
 import (
 	_ "embed"
-	"fmt"
 	"testing"
 )
 
@@ -59,34 +58,6 @@ var (
 		},
 	}
 )
-
-func ExampleParseInput() {
-	output1 := ParseInput(InputExample)
-	fmt.Println(output1)
-
-	output2 := ParseInput(InputProblem)
-	fmt.Println(output2)
-
-	// Output:
-	// 142
-	// 54940
-}
-
-func ExampleParseInput2() {
-	output1 := ParseInput2(InputExample2)
-	fmt.Println(output1)
-
-	output2 := ParseInput2(InputExample25)
-	fmt.Println(output2)
-
-	output3 := ParseInput2(InputProblem)
-	fmt.Println(output3)
-
-	// Output:
-	// 281
-	// 443
-	// 54208
-}
 
 func TestParseInput(t *testing.T) {
 	for name, tc := range testTable {
