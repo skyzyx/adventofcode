@@ -10,10 +10,10 @@ import (
 
 func ParseInput(f string) int {
 	var output int
-	lines := strings.Split(f, "\n")
 
-	for i := range lines {
-		line := lines[i]
+	for len(f) > 0 {
+		delim := strings.IndexByte(f, 0x0A)
+		line := f[0:delim]
 		bytestream := []byte(line)
 
 		var bDigits []byte
@@ -38,6 +38,7 @@ func ParseInput(f string) int {
 		}
 
 		output += intDigits
+		f = f[delim+1:]
 	}
 
 	return output
@@ -46,34 +47,33 @@ func ParseInput(f string) int {
 func ParseInput2(f string) int {
 	var intOutput int
 
-	lines := strings.Split(f, "\n")
-
-	for i := range lines {
-		s := lines[i]
+	for len(f) > 0 {
+		delim := strings.IndexByte(f, 0x0A)
+		s := f[0:delim]
 
 		var output bytes.Buffer
 
 		for len(s) > 0 {
 			if len(s) >= 3 && s[0:3] == "one" {
-				_, _ = output.WriteString("1")
+				_ = output.WriteByte('1')
 			} else if len(s) >= 3 && s[0:3] == "two" {
-				_, _ = output.WriteString("2")
+				_ = output.WriteByte('2')
 			} else if len(s) >= 5 && s[0:5] == "three" {
-				_, _ = output.WriteString("3")
+				_ = output.WriteByte('3')
 			} else if len(s) >= 4 && s[0:4] == "four" {
-				_, _ = output.WriteString("4")
+				_ = output.WriteByte('4')
 			} else if len(s) >= 4 && s[0:4] == "five" {
-				_, _ = output.WriteString("5")
+				_ = output.WriteByte('5')
 			} else if len(s) >= 3 && s[0:3] == "six" {
-				_, _ = output.WriteString("6")
+				_ = output.WriteByte('6')
 			} else if len(s) >= 5 && s[0:5] == "seven" {
-				_, _ = output.WriteString("7")
+				_ = output.WriteByte('7')
 			} else if len(s) >= 5 && s[0:5] == "eight" {
-				_, _ = output.WriteString("8")
+				_ = output.WriteByte('8')
 			} else if len(s) >= 4 && s[0:4] == "nine" {
-				_, _ = output.WriteString("9")
+				_ = output.WriteByte('9')
 			} else {
-				_, _ = output.WriteString(s[0:1])
+				_ = output.WriteByte(s[0:1][0])
 			}
 
 			s = s[1:]
@@ -105,6 +105,12 @@ func ParseInput2(f string) int {
 		}
 
 		intOutput += intDigits
+
+		if len(f) > delim+1 {
+			f = f[delim+1:]
+		} else {
+			f = ""
+		}
 	}
 
 	return intOutput
