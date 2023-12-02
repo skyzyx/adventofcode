@@ -1,0 +1,44 @@
+goos: darwin
+goarch: arm64
+pkg: adventofcode
+                                            │   Current   │                 Previous                 │
+                                            │   sec/op    │     sec/op      vs base                  │
+ParseInput/input.example.txt-10               196.7n ± 0%   14829.5n ±  0%   +7439.15% (p=0.002 n=6)
+ParseInput/input.problem.txt-10               93.90µ ± 3%   1702.40µ ±  1%   +1713.04% (p=0.002 n=6)
+ParseInputParallel/input.example.txt-10       36.12n ± 3%   8635.00n ±  8%  +23806.42% (p=0.002 n=6)
+ParseInputParallel/input.problem.txt-10       16.75µ ± 7%    536.64µ ± 37%   +3103.36% (p=0.002 n=6)
+ParseInput2/input.example2.txt-10             1.093µ ± 0%    22.852µ ±  9%   +1990.76% (p=0.002 n=6)
+ParseInput2/input.example2.5.txt-10           1.376µ ± 2%    25.955µ ±  6%   +1786.91% (p=0.002 n=6)
+ParseInput2/input.problem.txt-10              255.0µ ± 0%    2655.0µ ±  1%    +941.37% (p=0.002 n=6)
+ParseInput2Parallel/input.problem.txt-10      67.70µ ± 5%    705.49µ ±  6%    +942.06% (p=0.002 n=6)
+ParseInput2Parallel/input.example2.txt-10     374.7n ± 4%    9290.0n ±  2%   +2379.65% (p=0.002 n=6)
+ParseInput2Parallel/input.example2.5.txt-10   488.0n ± 5%    9750.0n ±  1%   +1897.75% (p=0.002 n=6)
+geomean                                       2.968µ          80.74µ         +2620.40%
+
+                                            │   Current    │                Previous                 │
+                                            │     B/op     │     B/op       vs base                  │
+ParseInput/input.example.txt-10                 32.00 ± 0%    7732.00 ± 0%  +24062.50% (p=0.002 n=6)
+ParseInput/input.problem.txt-10               14.95Ki ± 0%   875.79Ki ± 0%   +5756.90% (p=0.002 n=6)
+ParseInputParallel/input.example.txt-10         32.00 ± 0%    7734.00 ± 0%  +24068.75% (p=0.002 n=6)
+ParseInputParallel/input.problem.txt-10       14.95Ki ± 0%   880.78Ki ± 0%   +5790.26% (p=0.002 n=6)
+ParseInput2/input.example2.txt-10               952.0 ± 0%    11125.0 ± 0%   +1068.59% (p=0.002 n=6)
+ParseInput2/input.example2.5.txt-10           1.195Ki ± 0%   12.833Ki ± 0%    +973.57% (p=0.002 n=6)
+ParseInput2/input.problem.txt-10              132.9Ki ± 0%   1222.6Ki ± 0%    +819.82% (p=0.002 n=6)
+ParseInput2Parallel/input.problem.txt-10      132.9Ki ± 0%   1222.2Ki ± 0%    +819.49% (p=0.002 n=6)
+ParseInput2Parallel/input.example2.txt-10       952.0 ± 0%    11164.5 ± 0%   +1072.74% (p=0.002 n=6)
+ParseInput2Parallel/input.example2.5.txt-10   1.195Ki ± 0%   12.859Ki ± 0%    +975.78% (p=0.002 n=6)
+geomean                                       2.332Ki         64.70Ki        +2673.87%
+
+                                            │   Current   │               Previous                │
+                                            │  allocs/op  │  allocs/op    vs base                 │
+ParseInput/input.example.txt-10                4.000 ± 0%    62.000 ± 0%  +1450.00% (p=0.002 n=6)
+ParseInput/input.problem.txt-10               1.151k ± 0%   13.672k ± 0%  +1087.84% (p=0.002 n=6)
+ParseInputParallel/input.example.txt-10        4.000 ± 0%    62.000 ± 0%  +1450.00% (p=0.002 n=6)
+ParseInputParallel/input.problem.txt-10       1.151k ± 0%   13.673k ± 0%  +1087.92% (p=0.002 n=6)
+ParseInput2/input.example2.txt-10              21.00 ± 0%    185.00 ± 0%   +780.95% (p=0.002 n=6)
+ParseInput2/input.example2.5.txt-10            27.00 ± 0%    229.00 ± 0%   +748.15% (p=0.002 n=6)
+ParseInput2/input.problem.txt-10              3.007k ± 0%   34.070k ± 0%  +1033.02% (p=0.002 n=6)
+ParseInput2Parallel/input.problem.txt-10      3.007k ± 0%   34.069k ± 0%  +1033.01% (p=0.002 n=6)
+ParseInput2Parallel/input.example2.txt-10      21.00 ± 0%    185.00 ± 0%   +780.95% (p=0.002 n=6)
+ParseInput2Parallel/input.example2.5.txt-10    27.00 ± 0%    229.00 ± 0%   +748.15% (p=0.002 n=6)
+geomean                                        95.27         1.041k        +992.83%
