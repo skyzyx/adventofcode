@@ -39,28 +39,7 @@ function parseSet(l) {
 }
 
 function maxColor(sets, color) {
-  let values = [];
-
-  for (const set of sets) {
-    if (set[color]) {
-      values.push(set[color]);
-    }
-  }
-
-  return Math.max(...values);
-}
-
-function waterPower(games) {
-  let sum = 0;
-
-  for (const game of games) {
-    sum +=
-      maxColor(game.sets, 'blue') *
-      maxColor(game.sets, 'green') *
-      maxColor(game.sets, 'red');
-  }
-
-  return sum;
+  return Math.max(...sets.map(set => set[color] || 0));
 }
 
 function game(tree, bag) {
@@ -80,13 +59,18 @@ function game(tree, bag) {
 }
 
 function score(games) {
-  let score = 0;
+  return games.reduce((a, g) => a + g.game, 0);
+}
 
-  for (const game of games) {
-    score += game.game;
-  }
-
-  return score;
+function waterPower(games) {
+  return games.reduce(
+    (a, g) =>
+      a +
+      maxColor(g.sets, 'blue') *
+        maxColor(g.sets, 'green') *
+        maxColor(g.sets, 'red'),
+    0,
+  );
 }
 
 module.exports = {
