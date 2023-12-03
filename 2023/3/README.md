@@ -159,3 +159,14 @@ For part 2, my prior work in identifying symbol locations paid off.
 Rather than checking all of the symbols, I just had to find the “gear” symbols (`*`), check adjacency (with de-duping), and remove `NaN`s. If there are exactly 2 numbers, multiply them, then add up each mathematical _product_.
 
 And again, write tests.
+
+## Post-script (and a bug)
+
+I added some examples from Reddit to my test suite (see the `reddit/` subdirectory for the examples and links back to the original post). There were a couple of calculations my code performed that were incorrect (by eyeballing what should/shouldn't be counted), and my code does _NOT_ handle removing a number from the global set of numbers (by position, not value) when it has been found adjacent to another symbol.
+
+> [!NOTE]
+> When I say "by position, not value", what I mean is that if the value `123` is used multiple times in an input, but in different locations/coordinates, we count each _position_ of discovering `123`. I do not mean that we should only count `123` once in the entire document.
+
+This means that independent symbols can both detect adjacency to the same _number_. My current implementation counts the number in all cases, instead of knowing that a number was already counted alongside a different symbol.
+
+I had thought about this during my initial problem-solving, but I decided to see if I could find the correct answers without this, and only add it if my answers were wrong. Fortunately, the AoC-provided example and problem inputs were sparse enough to not run into this. But a more robust solution should handle this case.

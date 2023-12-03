@@ -141,6 +141,34 @@ test('sum of all part numbers (example)', () => {
   expect(engineSchematic).toBe(4361);
 });
 
+test('sum of all part numbers (reddit examples)', () => {
+  let exampleValues = [
+    4, // Index 0
+    28, // Index 1 (calculates 32; this is a bug in my code)
+    44, // Index 2
+    4, // Index 3
+    44, // Index 4
+    22, // Index 5
+    44, // Index 6
+    0, // Index 7
+    62, // Index 8 (calculates 108; this is a bug in my code)
+  ];
+
+  for (let i = 0; i < exampleValues.length; i++) {
+    let matrix = parseInput(path.resolve(__dirname, `reddit/example${i}.txt`));
+    let lookupTable = generateLookupTable(matrix);
+    let symbolList = findSymbolList(matrix);
+    let engineSchematic = 0;
+
+    for (const symbol of symbolList) {
+      let adjacency = checkAdjacency(lookupTable, symbol);
+      engineSchematic += sumPartNumbersBySymbol(adjacency);
+    }
+
+    expect(engineSchematic).toBe(exampleValues[i]);
+  }
+});
+
 test('sum of all part numbers (real)', () => {
   let matrix = parseInput(path.resolve(__dirname, 'input.problem.txt'));
   let lookupTable = generateLookupTable(matrix);
