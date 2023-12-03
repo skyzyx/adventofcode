@@ -2,6 +2,21 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
+/*
+Input file is parsed into a data structure which looks like this:
+
+[
+  {
+    game: 1,
+    sets: [
+      {blue: 3, red: 4},
+      {red: 1, green: 2, blue: 6},
+      {green: 2}
+    ],
+  },
+];
+*/
+
 function parseInput(file) {
   return fs
     .readFileSync(path.resolve(__dirname, file), {
