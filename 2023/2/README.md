@@ -28,6 +28,14 @@ let matches = new RegExp(
 ).exec(line);
 ```
 
+…then later:
+
+```javascript
+let matches = new RegExp(
+  /(?<count>\d+)\s(?<color>\w+)/gim,
+).exec(chunk)
+```
+
 1. Used `?<name>` to name each matched grouping.
 1. Used `?:` to indicate a non-matching pattern. Doesn't come back as a "match", but it's part of the matching pattern.
 1. Used `+?` to specify _one or more_, but _non-greedy_.
