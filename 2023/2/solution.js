@@ -20,22 +20,17 @@ function parseInput(file) {
     });
 }
 
-function parseSet(l) {
-  let o = [];
+function parseSet(line) {
+  return line.map(set => {
+    let g = {};
 
-  for (const set of l) {
-    let cubes = set.split(', '),
-      g = {};
+    set.split(', ').forEach(c => {
+      let m = new RegExp(/(?<count>\d+)\s(?<color>\w+)/gim).exec(c);
+      g[m.groups.color] = parseInt(m.groups.count, 10);
+    });
 
-    for (const c of cubes) {
-      let m2 = new RegExp(/(?<count>\d+)\s(?<color>\w+)/gim).exec(c);
-      g[m2.groups.color] = parseInt(m2.groups.count, 10);
-    }
-
-    o.push(g);
-  }
-
-  return o;
+    return g;
+  });
 }
 
 function maxColor(sets, color) {
@@ -44,9 +39,7 @@ function maxColor(sets, color) {
 
 function game(tree, bag) {
   return tree.filter(game => {
-    let sets = game.sets;
-
-    for (const set of sets) {
+    for (const set of game.sets) {
       for (const color in set) {
         if (bag[color] < set[color]) {
           return false;
