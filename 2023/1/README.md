@@ -196,7 +196,7 @@ ok  	adventofcode	83.617s
 
 I knew that I could optimize for CPU performance and memory usage. Do I generated some profiling data for both, and used Go's toolchain to investigate where my code was spending its time. As I resolved one thing, I looked at the next most time-consuming code.
 
-1. Switched from reading files from disk, to leveraging [Go embeds](https://pkg.go.dev/embed).
+1. Switched from reading files from disk, to leveraging [Go embeds](https://pkg.go.dev/embed). (Read from disk once instead of several times.)
 1. Replaced regular expressions (surprisingly slow) with iterating over a byte array (`[]byte`) and removing what I don’t need.
 1. Reduced the amount of casting across types. (Go is strongly typed, and there are differences between `int` and `int64`, `string` and `[]byte`.)
 1. Replaced traditional string concatenation with writing to a [`bytes.Buffer`](https://pkg.go.dev/bytes#Buffer).
