@@ -58,17 +58,18 @@ function countPoints(o) {
 }
 
 function countCards(cards) {
-  for (let i = 0; i < cards.length; i++) {
-    let winningValuesLength = cards[i].card + cards[i].winningValues.length;
+  let counter = {};
 
-    for (let j = cards[i].card; j < winningValuesLength; j++) {
+  for (const card of cards) {
+    let winningValuesLength = card.card + card.winningValues.length;
+
+    for (let j = card.card; j < winningValuesLength; j++) {
       let matchingCard = cards.find(e => e.card === j + 1);
       cards.push(matchingCard);
     }
   }
 
-  let counter = {};
-
+  // We shouldn't be looping twice. Make this better.
   for (const card of cards) {
     if (!counter['card' + card.card]) {
       counter['card' + card.card] = 0;
