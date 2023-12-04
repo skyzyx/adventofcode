@@ -26,7 +26,7 @@ Card 100: 93 90 23 71 16 47 15 49 73 21 | 54 14 92 44 20 87 48  3 15 88 83  2 12
 
 If you take the example _Card 1_ data, and take _just_ my scratchcard numbers (`83 86  6 31 17  9 48 53`), and you split on the space character (ASCII `0x20`) you get the following:
 
-```json
+```javascript
 ['83', '86', '', '6', '31', '17', '', '9', '48', '53']
 ```
 
