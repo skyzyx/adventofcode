@@ -85,7 +85,7 @@ function parseIntoMap2(a) {
 }
 
 function* range(s, l) {
-  for (var i = s; i < s + l; i++) {
+  for (let i = s; i < s + l; i++) {
     yield i;
   }
 }
@@ -101,7 +101,7 @@ function lookup(map, translation, sourceValue) {
     }
   });
 
-  if (isNaN(capture)) {
+  if (Number.isNaN(capture)) {
     return sourceValue;
   }
 
@@ -111,7 +111,7 @@ function lookup(map, translation, sourceValue) {
 function seedToLocation(map, sourceValue) {
   let destValue = sourceValue;
 
-  for (const [translation, mapping] of Object.entries(map.translations)) {
+  for (const [translation, _] of Object.entries(map.translations)) {
     destValue = lookup(map, translation, destValue);
   }
 
